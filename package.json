@@ -1,0 +1,51 @@
+{
+  "name": "gocart",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "socket": "node server/index.js"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.36.8",
+    "@imagekit/next": "^2.1.3",
+    "@neondatabase/serverless": "^1.0.2",
+    "@prisma/adapter-neon": "^6.19.2",
+    "@prisma/client": "^6.19.2",
+    "@reduxjs/toolkit": "^2.8.2",
+    "axios": "^1.11.0",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "framer-motion": "^12.34.0",
+    "image-size": "^2.0.2",
+    "imagekit": "^6.0.0",
+    "inngest": "^3.49.3",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.525.0",
+    "next": "^16.1.3",
+    "openai": "^5.23.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-hot-toast": "^2.5.2",
+    "react-is": "^19.2.3",
+    "react-leaflet": "^5.0.0",
+    "react-redux": "^9.2.0",
+    "recharts": "^3.1.2",
+    "sharp": "^0.34.5",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.3",
+    "stripe": "^18.5.0",
+    "ws": "^8.19.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/ws": "^8.18.1",
+    "prisma": "^6.19.2",
+    "tailwindcss": "^4"
+  }
+}

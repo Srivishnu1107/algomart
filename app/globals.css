@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Croma-style dark theme design tokens */
+:root {
+    --bg-primary: #0a0a0b;
+    --bg-secondary: #0f0f11;
+    --bg-card: #141416;
+    --bg-elevated: #1a1b1e;
+    --bg-glass: rgba(20, 20, 22, 0.85);
+    --accent: #14b8a6;
+    --accent-hover: #0d9488;
+    --accent-muted: rgba(20, 184, 166, 0.15);
+    --accent-glow: rgba(20, 184, 166, 0.25);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --border: #27272a;
+    --border-hover: #3f3f46;
+    --shadow-card: 0 4px 24px -4px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 12px 40px -8px rgba(0, 0, 0, 0.5);
+}
+
+@layer components {
+    @keyframes marqueeScroll {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+    @keyframes glow-pulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.8; }
+    }
+    @keyframes cursor-blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+    .animate-cursor-blink {
+        animation: cursor-blink 0.53s ease-in-out infinite;
+    }
+    @keyframes toggle-thumb-in {
+        from { opacity: 0.85; }
+        to { opacity: 1; }
+    }
+    .toggle-thumb-transition {
+        transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+        backface-visibility: hidden;
+    }
+    .toggle-thumb-transition-snap {
+        transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+    }
+    @keyframes fashion-reveal {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        35% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        65% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(15%);
+        }
+    }
+    .animate-fashion-reveal {
+        animation: fashion-reveal 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes float-in {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.4s ease-out;
+    }
+    .animate-slide-in {
+        animation: slideIn 0.35s ease-out;
+    }
+    .animate-float-in {
+        animation: float-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .animate-glow {
+        animation: glow-pulse 3s ease-in-out infinite;
+    }
+    @keyframes golden-flow {
+        0%, 100% {
+            filter: drop-shadow(0 0 8px rgba(234,179,8,0.8)) drop-shadow(0 0 16px rgba(245,158,11,0.5));
+            opacity: 1;
+        }
+        50% {
+            filter: drop-shadow(0 0 16px rgba(234,179,8,1)) drop-shadow(0 0 28px rgba(245,158,11,0.7));
+            opacity: 1;
+        }
+    }
+    .animate-golden-flow {
+        animation: golden-flow 2.5s ease-in-out infinite;
+    }
+    .pro-glow-icon {
+        filter: drop-shadow(0 0 6px rgba(234,179,8,0.7)) drop-shadow(0 0 14px rgba(245,158,11,0.5));
+    }
+    .pro-glow-text {
+        text-shadow: 0 0 8px rgba(234,179,8,0.6), 0 0 16px rgba(245,158,11,0.4);
+    }
+    .revenue-card {
+        background: linear-gradient(145deg, rgba(24, 24, 27, 0.9) 0%, rgba(18, 18, 20, 0.95) 100%);
+        border: 1px solid rgba(63, 63, 70, 0.5);
+        box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.35);
+    }
+    .revenue-card:hover {
+        border-color: rgba(113, 113, 122, 0.4);
+        box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.5);
+    }
+    .revenue-glow-gold {
+        box-shadow: 0 0 40px -8px rgba(245, 158, 11, 0.15);
+    }
+    .revenue-glow-cyan {
+        box-shadow: 0 0 40px -8px rgba(6, 182, 212, 0.12);
+    }
+    /* Admin dashboard typography — applied below KPI row */
+    .admin-dashboard-content {
+        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+    .admin-dashboard-content .dash-section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+    }
+    .admin-dashboard-content .dash-card-title {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+    .admin-dashboard-content .dash-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+    }
+    .admin-dashboard-content .dash-body {
+        font-size: 0.8125rem;
+        font-weight: 500;
+    }
+    .admin-dashboard-content .dash-caption {
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    .admin-dashboard-content .dash-tab {
+        font-size: 0.8125rem;
+        font-weight: 600;
+    }
+}
+
+@layer base {
+    html {
+        font-size: 16px;
+        /* Slight zoom-out so Vercel matches local */
+        zoom: 0.9;
+    }
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    button {
+        cursor: pointer;
+    }
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-weight: 400;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+    h1 {
+        font-weight: 700;
+    }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Fix Clerk UserButton dropdown positioning - ensure it appears below header */
+.cl-userButtonPopoverCard {
+    position: fixed !important;
+    z-index: 9999 !important;
+}
+
+.cl-userButtonPopover {
+    position: fixed !important;
+    z-index: 9999 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Futuristic hero — grid pattern, glow animations
+   ═══════════════════════════════════════════════════════════ */
+
+.hero-grid-bg {
+    background-image:
+        linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+@keyframes hero-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-14px); }
+}
+.animate-hero-float {
+    animation: hero-float 6s ease-in-out infinite;
+}
+
+@keyframes neon-breathe {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+.animate-neon-breathe {
+    animation: neon-breathe 4s ease-in-out infinite;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional (for Firefox) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
